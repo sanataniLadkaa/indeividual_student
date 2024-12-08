@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropout Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh; /* Full viewport height */
+            display: flex; /* Enable flexbox */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center text content */
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .results {
+            margin-top: 30px;
+            background: #e7f3fe;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            border-radius: 4px;
+            text-align: left; /* Align the result content */
+        }
+
+        .results h2 {
+            margin-top: 0;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 8px 0;
+        }
+
+        .status {
+            font-size: 18px;
+            color: #333;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        <div class="results">
+            <p><strong>Parents' Qualification:</strong> {{ parents_qualification }}</p>
+            <p><strong>Area:</strong> {{ area }}</p>
+            <p><strong>Attendance Percentage:</strong> {{ attendance }}%</p>
+            <p><strong>Last Percentage:</strong> {{ last_percentage }}%</p>
+            <p><strong>Family Income:</strong> Rs {{ income }}</p>
+            <p><strong>Number of Teachers per 50 students:</strong> {{ num_teachers }}</p>
+
+            <hr>
+
+            <h2>Dropout Status:</h2>
+            <p class="status">
+                <strong>{{ (dropout_probability * 10) | round(2) }}%</strong> 
+            </p>
+        </div>
+        <!-- <footer>
+            <p>&copy; 2024 Dropout Prediction System</p>
+        </footer> -->
+    </div>
+</body>
+</html>

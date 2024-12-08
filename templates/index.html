@@ -1,1 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropout Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
 
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .results {
+            margin-top: 30px;
+            background: #e7f3fe;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            border-radius: 4px;
+        }
+
+        .results h2 {
+            margin-top: 0;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .form-section {
+            margin-top: 30px;
+        }
+
+        .form-section label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-section input,
+        .form-section select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-section button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-section button:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dropout Prediction Form</h1>
+        <form method="POST" action="/predict">
+            <label for="last_percentage">Last Percentage:</label>
+            <input type="number" id="last_percentage" name="last_percentage" step="0.01" required><br>
+            <br>
+            <label for="attendance">Attendance Percentage:</label>
+            <input type="number" id="attendance" name="attendance" step="0.01" required><br><br>
+
+            <label for="parents_qualification">Parents' Qualification:</label>
+            <select id="parents_qualification" name="parents_qualification" required><br><br>
+                <option value="Primary">Primary</option>
+                <option value="Secondary">Secondary</option>
+                <option value="Higher">Higher</option>
+            </select><br><br>
+
+            <label for="area">Area (Urban/Rural):</label>
+            <select id="area" name="area" required><br>
+                <option value="Urban">Urban</option>
+                <option value="Rural">Rural</option>
+            </select><br><br>
+
+            <label for="num_teachers">Number of Teachers per 50 students:</label>
+            <input type="number" id="num_teachers" name="num_teachers" required><br><br>
+
+            <label for="income">Family Income:</label>
+            <input type="number" id="income" name="income" step="0.01" required><br><br>
+
+            <button type="submit">Submit</button><br><br>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Dropout Prediction System</p>
+    </footer>
+</body>
+</html>
