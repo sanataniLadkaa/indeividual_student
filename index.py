@@ -4,9 +4,26 @@ from fastapi.templating import Jinja2Templates
 import joblib
 import os
 import pickle
+from fastapi.middleware.cors import CORSMiddleware
 
 # Initialize FastAPI app
 app = FastAPI()
+
+# Add CORS middleware
+origins = [
+    "http://localhost",  # Allow localhost
+    "http://localhost:3000",  # Allow frontend app if running on port 3000
+    # Add other origins as needed
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Allows the listed origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allows all headers
+)
+
 
 # Load the pre-trained model and label encoders
 model_path = "random_forest_modell.pkl"
